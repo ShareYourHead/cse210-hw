@@ -1,6 +1,15 @@
 using System;
 using JournalObjects;
 
+// * * * * *
+//
+// To exceed requirements, I added an extra user function called Merge.
+// The user enters two existing filenames, then it combines all journal entries and saves it.
+//
+// Also, the majority of my code is contained in ObjectClasses.cs
+//
+// * * * * *
+
 class Program
 {
     static PromptGenerator pg = new PromptGenerator();
