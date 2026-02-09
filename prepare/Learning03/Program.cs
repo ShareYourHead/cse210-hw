@@ -1,5 +1,5 @@
 using System;
-using FractionClass;
+using Learning03;
 
 class Program
 {

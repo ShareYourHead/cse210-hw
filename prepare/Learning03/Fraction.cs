@@ -1,6 +1,6 @@
 using System;
 
-namespace FractionClass
+namespace Learning03
 {
     class Fraction
     {
