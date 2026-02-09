@@ -2,55 +2,8 @@ using System;
 using System.IO.Enumeration;
 using System.Runtime.CompilerServices;
 
-namespace JournalObjects
+namespace Develop02
 {
-    public class PromptGenerator
-    {
-        private List<string> prompts = new List<string>();
-        private Random rng = new Random();
-
-        public PromptGenerator(string path = "prompts")
-        {
-            if(!File.Exists(path))
-            {
-                Console.WriteLine($"ERROR! \"{path}\" not found.");
-                return;
-            }
-
-            using (var reader = new StreamReader(path))
-            {
-                while (!reader.EndOfStream)
-                {
-                    string prompt = reader.ReadLine();
-                    prompts.Add(prompt);
-                }
-            }
-            
-            return; //skip printing stuff
-
-            foreach(string prompt in prompts)
-            {
-                Console.Write("IMPORTED PROMPT: ");
-                Console.WriteLine(prompt);
-            }
-            Console.WriteLine();
-        }
-
-        public int GeneratePrompt()
-        {
-            return rng.Next(0, prompts.Count);
-        }
-
-        public void Display(int n, bool line = true)
-        {
-            Console.Write(prompts[n]);
-            if(line)
-            {
-                Console.WriteLine();
-            }
-        }
-    }
-
     public class Journal
     {
         public PromptGenerator pg;
@@ -153,38 +106,6 @@ namespace JournalObjects
                     }
                 }
             }
-        }
-    }
-
-    public class Entry
-    {
-        private Journal parent;
-        public string date = "M/d/yyyy";
-        public int prompt;
-        public string content;
-
-        public Entry(Journal j, int i, string s)
-        {
-            parent = j;
-            date = DateTime.Now.ToString("M/d/yyyy");
-            prompt = i;
-            content = s;
-        }
-
-        public Entry(Journal j, string d, int i, string s)
-        {
-            parent = j;
-            date = d;
-            prompt = i;
-            content = s;
-        }
-
-        public void Display()
-        {
-            Console.Write($"Date: {date} - Prompt: ");
-            parent.pg.Display(prompt);
-            Console.WriteLine(content);
-            Console.WriteLine();
         }
     }
 }
