@@ -9,7 +9,7 @@ namespace Foundation3
         private string _date = date;
         private string _time = time;
         private string _address = address;
-        protected string _eventType = eventType;
+        private string _eventType = eventType;
 
         public string GetStandardDetails()
         {
